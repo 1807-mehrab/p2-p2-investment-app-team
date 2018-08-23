@@ -27,7 +27,7 @@ public class UserDao {
     // UPDATE THE QUERY
     public User getUserByUsername(String username) {
     	Session s = sessionFactory.getCurrentSession();
-    	return (User)s.createQuery("from User where username = :username").setString("username", username).list().get(0);
+    	return (User)s.createQuery("from USERTABLE where user_email = :username").setString("username", username).list().get(0);
     }
     
     @Transactional
