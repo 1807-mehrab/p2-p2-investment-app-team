@@ -1,5 +1,6 @@
 package com.revature.helloworld.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -56,7 +57,7 @@ public class HelloWorldController {
 	    public @ResponseBody List<User> getUsers(){
 		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
-	        List<User> uselist = null;
+	        List<User> uselist = new ArrayList<User>();
 	        uselist.add(dao.getUserByUsername("joe@gmail.com"));
 	        uselist.add(dao.getUserByUsername("jime@gmail.com"));
 	        uselist.add(dao.getUserByUsername("bob@gmail.com"));
