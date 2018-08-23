@@ -18,8 +18,12 @@ import DAO.UserDao;
 @Controller
 public class HelloWorldController {
 	String message = "Welcome to Spring MVC!";
+	@Autowired
+	UserDao dao;
 	
-	
+	public void setDao(UserDao dao) {
+		this.dao = dao;
+	}
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
 			@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
@@ -47,7 +51,6 @@ public class HelloWorldController {
 	 
 	 @RequestMapping("/user")
 	    public @ResponseBody User getUser(){
-		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
 	        return dao.getUserByUsername("bob@gmail.com");
 	    }
