@@ -29,9 +29,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import DAO.UserDao;
 
 @Configuration
-@ComponentScan("com.revature")
+@ComponentScan("")
 @EnableTransactionManagement
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:connection.properties")
 public class HibernateConfig extends WebMvcConfigurerAdapter {
 	@Autowired
 	private Environment env;
