@@ -70,7 +70,7 @@ public class HelloWorldController {
 	    }
 	 
 	@PostMapping(value = "/usercheck")
-	public ResponseEntity<User> receiveUser(@Valid @RequestBody User user, Errors errors) {
+	public ResponseEntity<User> receiveUser(@RequestBody User user, Errors errors) {
 		if (errors.hasErrors()) {
 			return null;
 		}
