@@ -21,6 +21,9 @@ public class HelloWorldController {
 	@Autowired
 	UserDao dao;
 	
+	public void setDao(UserDao dao) {
+		this.dao = dao;
+	}
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
 			@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
@@ -34,7 +37,6 @@ public class HelloWorldController {
 	/*
 	 @RequestMapping(value= "/String", method = RequestMethod.GET, produces = "application/json")
 	public String getString() {
-
 		return "Some String";
 	}
 	 */
