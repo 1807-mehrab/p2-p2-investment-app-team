@@ -1,0 +1,9 @@
+/.metadata/
+/.settings/
+.classpath
+.project
+/target/
+nb-configuration.xml
+.idea/
+*.iml
+src/main/resources/

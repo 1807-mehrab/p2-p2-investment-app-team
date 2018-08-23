@@ -1,0 +1,8 @@
+{{outlet}}
+{{#link-to "new-recipe"}}
+   <button class="btn btn-primary">Make New Recipe</button>
+{{/link-to}}
+
+{{#each model as |recipeBuffer|}}
+    {{recipe-list-all recipe=recipeBuffer}}
+{{/each}}

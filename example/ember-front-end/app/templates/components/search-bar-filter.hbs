@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">   
+            <div class="col-md-12 ml-auto mr-auto">
+                <div class="input-group">
+                    {{input value=value
+                        key-up=(action 'handleFilterEntry')
+                        type="text" 
+                        class="form-control" 
+                        placeholder="Search for..."}}
+                </div>
+            </div>
+        </div> <!-- end of row -->
+        <br>
+        <!-- Search Option Radio Buttons -->
+        <div class="row">
+            <div class="col-md-6 mb-6 ml-auto mr-auto">
+                <div class="form-check-inline">
+                    {{#radio-button
+                        value="name"
+                        groupValue=searchFilter
+                        changed="filterToggle"}}
+                        Name
+                    {{/radio-button}}
+                </div>
+                <div class="form-check-inline">
+                    {{#radio-button
+                        value="ingredients"
+                        groupValue=searchFilter
+                        changed="filterToggle"}}
+                        Ingredients
+                    {{/radio-button}}
+                </div>
+            </div>
+        </div> <!-- end of row -->
+    </div>
+</div>
+{{yield results}}
