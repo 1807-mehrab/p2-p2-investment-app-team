@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.revature.helloworld.model.Person;
 import com.revature.helloworld.model.User;
 
+import DAO.UserDao;
+
 @CrossOrigin
 @Controller
 public class HelloWorldController {
@@ -44,11 +46,8 @@ public class HelloWorldController {
 	 
 	 @RequestMapping("/user")
 	    public @ResponseBody User getUser(){
-	        User user = new User();
-	        user.setSsn(1);
-	        user.setUsername("hmk");
-	        user.setPassword("password");
+		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
-	        return user;
+	        return dao.getUserByUsername("bob@gmail.com");
 	    }
 }

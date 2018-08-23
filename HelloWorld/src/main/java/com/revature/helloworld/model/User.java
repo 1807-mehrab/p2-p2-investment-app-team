@@ -1,5 +1,13 @@
 package com.revature.helloworld.model;
 
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+@Entity
+@Table(appliesTo = "USERTABLE")
+@JsonRootName(value = "user")
 public class User {
 	private String username;
 	private String password;
