@@ -49,6 +49,6 @@ public class HelloWorldController {
 	    public @ResponseBody User getUser(){
 		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
-	        return dao.getUserByUsername("bob@gmail.com");
+	        return dao.getUserByUsername("bob@gmail.com"); 
 	    }
 }
