@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>
+        {{model.recipe.recipeName}}
+      </h2>
+      <a href="https://placeholder.com"><img src="https://via.placeholder.com/350x150"></a>
+      <h4>Description :</h4>
+      <p>
+        {{model.recipe.description}}
+      </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2" style="background-color: skyblue">
+            <h4>{{model.ratings}}</h4>
+          </div>
+          <button class="btn btn-success" {{action "createRating" 1 model.recipe}}>:D</button>
+          <button class="btn btn-danger" {{action "createRating" -1 model.recipe}}>D:</button>
+        </div>
+        <br />
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <br />
+      <h4>Ingredients :</h4>
+      <p>
+        {{model.recipe.ingredients}}
+      </p>
+      <br />
+      <h4>Cooking Instructions :</h4>
+      <p>
+        {{model.recipe.cookingInstructions}}
+      </p>
+      <br />
+      <p>
+        By {{model.recipe.owner.username}}
+      </p>
+    </div>
+  </div>
+  <br />
+  <div class="container" style="background-color: #f4f4f4">
+    <form class="form-horizontal" {{action "createComment" comment model.recipe on="submit" }}>
+      {{textarea cols="80" rows="6" maxlength=1000 type="TextArea" placeholder="Add a comment here..." value=comment}}
+      <br />
+      <button class="btn btn-primary" type="submit">Add Comment</button>
+    </form>
+  </div>
+  <br /> {{#each model.comments as |comment|}} {{#if (checkvalid comment.recipe.recipeId model.recipe.recipeId)}}
+  <div class="container" style="background-color: white">
+    <p>
+      {{comment.owner.username}}
+      <br /> {{comment.content}}
+    </p>
+  </div>
+  <br /> {{/if}} {{/each}}
+</div>
