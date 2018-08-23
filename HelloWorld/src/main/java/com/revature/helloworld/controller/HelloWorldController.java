@@ -1,5 +1,7 @@
 package com.revature.helloworld.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,5 +50,17 @@ public class HelloWorldController {
 		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
 	        return dao.getUserByUsername("bob@gmail.com");
+	    }
+	 
+	 @RequestMapping("/users")
+	    public @ResponseBody List<User> getUsers(){
+		 	UserDao dao = new UserDao();
+	        System.out.println("got the request");
+	        List<User> uselist = null;
+	        uselist.add(dao.getUserByUsername("joe@gmail.com"));
+	        uselist.add(dao.getUserByUsername("jime@gmail.com"));
+	        uselist.add(dao.getUserByUsername("bob@gmail.com"));
+	        uselist.add(dao.getUserByUsername("robby@gmail.com"));
+	        return uselist;
 	    }
 }
