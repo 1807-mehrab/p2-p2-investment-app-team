@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.revature.helloworld.model.Person;
+import com.revature.helloworld.model.User;
 
 @CrossOrigin
 @Controller
@@ -39,5 +40,15 @@ public class HelloWorldController {
 	        person.setName("hmk");
 	        System.out.println("got the request");
 	        return person;
+	    }
+	 
+	 @RequestMapping("/user")
+	    public @ResponseBody User getUser(){
+	        User user = new User();
+	        user.setSsn(1);
+	        user.setUsername("hmk");
+	        user.setPassword("password");
+	        System.out.println("got the request");
+	        return user;
 	    }
 }
