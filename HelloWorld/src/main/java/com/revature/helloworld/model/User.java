@@ -1,5 +1,8 @@
 package com.revature.helloworld.model;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 import org.hibernate.annotations.Entity;
 import org.hibernate.annotations.Table;
 
@@ -7,10 +10,18 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @Entity
 @Table(appliesTo = "USERTABLE")
-@JsonRootName(value = "user")
+@JsonRootName(value = "User")
 public class User {
+	@Id
+	@Column(name="user_email")
 	private String username;
+	
+	@Id
+	@Column(name="user_password")
 	private String password;
+	
+	@Id
+	@Column(name="user_ssn")
 	private int ssn;
 	
 	@Override
