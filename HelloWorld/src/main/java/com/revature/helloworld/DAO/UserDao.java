@@ -26,13 +26,13 @@ public class UserDao {
     
     // UPDATE THE QUERY
     public User getUserByUsername(String username) {
-    	//Session s = sessionFactory.getCurrentSession();
-    	User bob = new User();
+    	Session s = sessionFactory.getCurrentSession();
+    	/*User bob = new User();
     	bob.setUsername(username);
     	bob.setPassword("terriblepassword");
-    	bob.setSsn(123);
-    	//return (User)s.createQuery("from User where username = :username").setString("username", username).list().get(0);
-    	return bob;
+    	bob.setSsn(123);*/
+    	return (User)s.createQuery("from User where username = :username").setString("username", username).list().get(0);
+    	//return bob;
     }
     
     @Transactional
