@@ -3,6 +3,7 @@ package com.revature.helloworld.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -13,16 +14,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.revature.helloworld.DAO.UserDao;
 import com.revature.helloworld.model.Person;
 import com.revature.helloworld.model.User;
+import com.revature.helloworld.service.UserService;
 
-@CrossOrigin
-@Controller
+@RestController
 public class HelloWorldController {
 	String message = "Welcome to Spring MVC!";
+	
+	@Autowired
+	private UserService service;
+	
+	public void setService(UserService service) {
+		this.service = service;
+	}
 	
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
@@ -52,9 +61,8 @@ public class HelloWorldController {
 	 
 	 @RequestMapping("/user")
 	    public @ResponseBody User getUser(){
-		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
-	        return dao.getUserByUsername("bob@gmail.com");
+	        return service.retrieveUser("bob@gmail.com");
 	    }
 	 
 	 @RequestMapping("/users")
