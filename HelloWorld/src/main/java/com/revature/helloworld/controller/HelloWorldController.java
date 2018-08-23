@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.revature.helloworld.DAO.UserDao;
 import com.revature.helloworld.model.Person;
 import com.revature.helloworld.model.User;
-
-import DAO.UserDao;
 
 @CrossOrigin
 @Controller

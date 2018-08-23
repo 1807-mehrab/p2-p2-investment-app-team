@@ -1,4 +1,4 @@
-package config;
+package com.revature.helloworld.config;
 
 import java.util.Properties;
 
@@ -25,8 +25,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import DAO.UserDao;
+import com.revature.helloworld.DAO.UserDao;
 
 @Configuration
 @ComponentScan("DAO")

@@ -1,4 +1,4 @@
-package DAO;
+package com.revature.helloworld.DAO;
 
 import java.util.List;
 
