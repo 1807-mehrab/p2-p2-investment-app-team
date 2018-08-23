@@ -1,5 +1,6 @@
 package com.revature.helloworld.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,9 @@ import com.revature.helloworld.model.User;
 @Controller
 public class HelloWorldController {
 	String message = "Welcome to Spring MVC!";
+	
+	@Autowired
+	UserDao dao;
 	
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
@@ -45,7 +49,6 @@ public class HelloWorldController {
 	 
 	 @RequestMapping("/user")
 	    public @ResponseBody User getUser(){
-		 	UserDao dao = new UserDao();
 	        System.out.println("got the request");
 	        return dao.getUserByUsername("bob@gmail.com");
 	    }
