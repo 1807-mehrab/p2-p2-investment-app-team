@@ -26,7 +26,7 @@ public class UserDao {
     
     // UPDATE THE QUERY
     public User getUserByUsername(String username) {
-    	Session s = sessionFactory.getCurrentSession();
+    	//Session s = sessionFactory.getCurrentSession();
     	User bob = new User();
     	bob.setUsername(username);
     	bob.setPassword("terriblepassword");
