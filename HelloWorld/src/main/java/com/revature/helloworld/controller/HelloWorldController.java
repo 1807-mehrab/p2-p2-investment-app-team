@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.revature.helloworld.DAO.CompanyDao;
+import com.revature.helloworld.DAO.StockDao;
 import com.revature.helloworld.DAO.UserDao;
 import com.revature.helloworld.model.Company;
 import com.revature.helloworld.model.Person;
+import com.revature.helloworld.model.Stock;
 import com.revature.helloworld.model.User;
 
 @CrossOrigin
@@ -92,6 +94,18 @@ public class HelloWorldController {
 	        uselist.add(dao.getCompanyByCompanyname("IBM"));
 	        uselist.add(dao.getCompanyByCompanyname("USD"));
 	        uselist.add(dao.getCompanyByCompanyname("Wal-Mart"));
+	        return uselist;
+	    }
+	 
+	 @RequestMapping("/stocks")
+	    public @ResponseBody List<Stock> getStocks(){
+		 	StockDao dao = new StockDao();
+	        System.out.println("got the request");
+	        List<Stock> uselist = new ArrayList<Stock>();
+	        uselist.add(dao.getStockbyStockName("Apple"));
+	        uselist.add(dao.getStockbyStockName("IBM"));
+	        uselist.add(dao.getStockbyStockName("USD"));
+	        uselist.add(dao.getStockbyStockName("Wal-Mart"));
 	        return uselist;
 	    }
 }
