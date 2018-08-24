@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.revature.helloworld.DAO.CompanyDao;
 import com.revature.helloworld.DAO.UserDao;
+import com.revature.helloworld.model.Company;
 import com.revature.helloworld.model.Person;
 import com.revature.helloworld.model.User;
 
@@ -80,4 +82,16 @@ public class HelloWorldController {
 		}else
 			return null;
 	}
+	
+	 @RequestMapping("/companies")
+	    public @ResponseBody List<Company> getCompanies(){
+		 	CompanyDao dao = new CompanyDao();
+	        System.out.println("got the request");
+	        List<Company> uselist = new ArrayList<Company>();
+	        uselist.add(dao.getCompanyByCompanyname("Apple"));
+	        uselist.add(dao.getCompanyByCompanyname("IBM"));
+	        uselist.add(dao.getCompanyByCompanyname("USD"));
+	        uselist.add(dao.getCompanyByCompanyname("Wal-Mart"));
+	        return uselist;
+	    }
 }
