@@ -1,6 +1,6 @@
 CREATE TABLE STOCK (
     Stock_Id INTEGER PRIMARY KEY,
-    User_Email INTEGER,
+    User_Email VARCHAR2(50),
     Number_Shares INTEGER CHECK (Number_Shares > -1),
     Company_Id INTEGER
 );
