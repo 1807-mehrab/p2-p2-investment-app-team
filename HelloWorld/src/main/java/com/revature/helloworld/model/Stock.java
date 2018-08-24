@@ -4,12 +4,12 @@ public class Stock {
 	private int stockId;
 	private String email;
 	private int numShares;
-	private int companyId;
+	private String companyId;
 	public Stock() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Stock(int stockId, String email, int numShares, int companyId) {
+	public Stock(int stockId, String email, int numShares, String companyId) {
 		super();
 		this.stockId = stockId;
 		this.email = email;
@@ -34,11 +34,11 @@ public class Stock {
 	public void setNumShares(int numShares) {
 		this.numShares = numShares;
 	}
-	public int getCompanyId() {
+	public String getCompanyId() {
 		return companyId;
 	}
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setCompanyId(String companyname) {
+		this.companyId = companyname;
 	}
 	@Override
 	public String toString() {
