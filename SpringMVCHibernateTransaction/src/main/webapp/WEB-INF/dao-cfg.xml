@@ -13,5 +13,7 @@
 <bean id="userTableDao" class="com.revature.investmentApp.dao.UserTableDao">
      <property name="sessionFactory" ref="mySessionFactory" />
 </bean>
- 
+<bean id="companyDao" class="com.revature.investmentApp.dao.CompanyDao">
+     <property name="sessionFactory" ref="mySessionFactory" />
+</bean>
 </beans>

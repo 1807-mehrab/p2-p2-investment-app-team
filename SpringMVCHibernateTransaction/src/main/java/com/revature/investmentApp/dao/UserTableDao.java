@@ -25,4 +25,20 @@ public class UserTableDao {
 
 	      return list;
 	  }
+	  
+	  @SuppressWarnings("unchecked")
+	  public UserTable getUserByEmail(String email) {
+		  System.out.println(email);
+		  Session session = this.sessionFactory.getCurrentSession();
+		  List<UserTable> list = session.createQuery("from UserTable").list();
+		  for(UserTable user:list) {
+			  System.out.println(user.getEmail());
+			  if(user.getEmail().equals(email)) {
+				  System.out.println("Found match");
+				  return user;
+			  }
+			  
+		  }
+		  return null;
+	  }
 }
